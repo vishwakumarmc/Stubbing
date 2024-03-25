@@ -1,4 +1,6 @@
- import java.util.ArrayList;
+package com.pack.test;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
