@@ -33,6 +33,7 @@ import java.util.stream.Stream;
         int operation(int a, int b);
     }
 
+
     public class Test {
         public static void main(String[] args) {
             List<Integer> arr = new ArrayList<Integer>();
@@ -46,6 +47,7 @@ import java.util.stream.Stream;
 
             // Add 2 numbers
             Function add = (a, b) -> a + b;
+
             System.out.println("Additon: " + add.operation(6, 7));
 
             // Filter function
