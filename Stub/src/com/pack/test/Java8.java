@@ -43,7 +43,7 @@ import java.util.stream.Stream;
             arr.add(4);
 
             // Using lambda expression to print all elements of arr
-            arr.forEach(n -> System.out.println(n));
+            arr.forEach(System.out::println);
 
             // Add 2 numbers
             Function add = (a, b) -> a + b;
@@ -103,7 +103,8 @@ import java.util.stream.Stream;
             System.out.println("Count: "+count);
 
             //Method Reference add getter method to the properties
-            List<Float> productPriceList =  list.stream().filter(p -> p.price > 30000) // filtering data
+            List<Float> productPriceList =  list.stream()
+                    .filter(p -> p.price > 30000)   // filtering data
                     .map(Product::getPrice)         // fetching price by referring getPrice method
                     .collect(Collectors.toList());  // collecting as list
             System.out.println(productPriceList);
