@@ -6,37 +6,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-    class Product {
-        int id;
-        String name;
-        float price;
-
-        public Product(int id, String name, float price) {
-            super();
-            this.id = id;
-            this.name = name;
-            this.price = price;
-        }
-
-        public int getId() {
-            return id;
-        }
-        public String getName() {
-            return name;
-        }
-        public float getPrice() {
-            return price;
-        }
-    }
-
-    interface Function {
-        int operation(int a, int b);
-    }
-
-
-    public class Test {
+    public class Java8 {
         public static void main(String[] args) {
-            List<Integer> arr = new ArrayList<Integer>();
+            List<Integer> arr = new ArrayList<>();
             arr.add(1);
             arr.add(2);
             arr.add(3);
@@ -46,13 +18,10 @@ import java.util.stream.Stream;
             arr.forEach(System.out::println);
 
             // Add 2 numbers
-            Function add = (a, b) -> a + b;
-
-            System.out.println("Additon: " + add.operation(6, 7));
 
             // Filter function
 
-            List<Product> list = new ArrayList<Product>();
+            List<Product> list = new ArrayList<>();
             list.add(new Product(1, "Samsung ", 17000f));
             list.add(new Product(3, "Iphone ", 65000f));
             list.add(new Product(2, "Sony ", 25000f));
@@ -69,14 +38,14 @@ import java.util.stream.Stream;
             s2.forEach(n -> System.out.println(n.name));
 
             // Collect intermediate operation by stream
-            List<Product> result = list.stream().filter(s -> s.name.startsWith("S")).collect(Collectors.toList());
+            List<Product> result = list.stream().filter(s -> s.name.startsWith("S")).toList();
             result.forEach(n -> System.out.println("Collect Result: " + n.name));
 
             // Square of the number
             List<Integer> number = Arrays.asList(2, 3, 4, 5);
 
             // demonstration of map method
-            List<Integer> square = number.stream().map(x -> x * x).collect(Collectors.toList());
+            List<Integer> square = number.stream().map(x -> x * x).toList();
             System.out.println(square);
 
             int even = number.stream().filter(x -> x % 2 == 0).reduce(0, (ans, i) -> ans + i);
@@ -106,7 +75,7 @@ import java.util.stream.Stream;
             List<Float> productPriceList =  list.stream()
                     .filter(p -> p.price > 30000)   // filtering data
                     .map(Product::getPrice)         // fetching price by referring getPrice method
-                    .collect(Collectors.toList());  // collecting as list
+                    .toList();  // collecting as list
             System.out.println(productPriceList);
         }
 
