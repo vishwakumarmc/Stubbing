@@ -18,7 +18,8 @@ import java.util.stream.Stream;
             arr.forEach(System.out::println);
 
             // Add 2 numbers
-
+            int sums = arr.stream().reduce(0, (a, b) -> a + b);
+            System.out.println(sums);
             // Filter function
 
             List<Product> list = new ArrayList<>();
